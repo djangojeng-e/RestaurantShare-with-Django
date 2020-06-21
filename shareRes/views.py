@@ -38,3 +38,9 @@ def Create_category(request):
     return redirect('/')
     # return HttpResponse('category Create 기능을 구현하는 페이지')
 
+
+def Delete_category(request):
+    category_id = request.POST['categoryId']
+    delete_category = Category.objects.get(id=category_id)
+    delete_category.delete()
+    return redirect('/')
