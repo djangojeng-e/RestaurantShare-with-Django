@@ -21,7 +21,9 @@ def restaurantDetail(request):
 
 def restaurantCreate(request):
     # return HttpResponse('restaurantCreate')
-    return render(request, 'shareRes/restaurantCreate.html')
+    categories = Category.objects.all()
+    content = {'categories': categories}
+    return render(request, 'shareRes/restaurantCreate.html', content)
 
 
 def categoryCreate(request):

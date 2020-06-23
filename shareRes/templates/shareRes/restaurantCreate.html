@@ -91,19 +91,18 @@
         </div>
         <div class="content">
             <form action="./create" method="POST" onsubmit="return checkFrom();">{% csrf_token %}
-                <div class="inputDiv">
-                    <div class="input-group">
-                        <span class="input-group-addon" id="sizing-addon2">카테고리</span>
-                        <select id="resCategory" name="resCategory" class="resCategory" size="1" required autofocus>
-                            {% for category in categories %}
-                            {% if category.id == 3 %}
-                            <option value="{{category.id}}" selected>{{category.category_name}}</option>
-                            {% else %}
-                            <option value="{{category.id}}">{{category.category_name}}</option>
-                            {% endif %}
-                            {% endfor %}
-                        </select>  
-                    </div>
+                <div class="input-group">
+                    <span class="input-group-addon" id="sizing-addon2">카테고리</span>
+                    <select id="resCategory" name="resCategory" class="resCategory" size="1" required autofocus>
+                        {% for category in categories %}
+                        {% if category.id == 3 %}
+                        <option value="{{ category.id }}">{{ category.category_name }}</option>
+                        {% else %}
+                        <option value="{{category.id}}">{{category.category_name}}</option>
+                        {% endif %}
+                        {% endfor %}
+                    </select>
+                </div>
                     <div class="input-group">
                         <span class="input-group-addon" id="sizing-addon2">맛집 이름</span>
                         <input id="resTitle" name="resTitle" type="text" class="form-control" placeholder="맛집 이름을 입력해주세요." aria-describedby="sizing-addon2">
