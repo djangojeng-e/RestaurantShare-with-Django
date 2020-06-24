@@ -16,9 +16,11 @@ def index(request):
     return render(request, 'shareRes/index.html', content)
 
 
-def restaurantDetail(request):
+def restaurantDetail(request, res_id):
     # return HttpResponse('RestaurantDetail')
-    return render(request, 'shareRes/restaurantDetail.html')
+    restaurant = Restaurant.objects.get(id=res_id)
+    content = {'restaurant': restaurant}
+    return render(request, 'shareRes/restaurantDetail.html', content)
 
 
 def restaurantCreate(request):

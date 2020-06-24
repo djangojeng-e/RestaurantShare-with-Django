@@ -7,7 +7,7 @@ from .views import Create_restaurant
 urlpatterns = [
 
   path('', index, name='index'),
-  path('restaurantDetail/', restaurantDetail),
+  path('restaurantDetail/<str:res_id>', restaurantDetail, name='resDetailPage'),
   path('restaurantCreate/', restaurantCreate),
   path('restaurantCreate/create', Create_restaurant, name='resCreate'),
   path('categoryCreate/', categoryCreate),
