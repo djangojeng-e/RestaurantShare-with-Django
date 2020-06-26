@@ -30,6 +30,13 @@ def restaurantCreate(request):
     return render(request, 'shareRes/restaurantCreate.html', content)
 
 
+def Delete_restaurant(request):
+    res_id = request.POST['resId']
+    restaurant = Restaurant.objects.get(id=res_id)
+    restaurant.delete()
+    return HttpResponseRedirect(reverse('index'))
+
+
 def Create_restaurant(request):
     category_id = request.POST['resCategory']
     category = Category.objects.get(id=category_id)
