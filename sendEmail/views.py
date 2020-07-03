@@ -1,8 +1,14 @@
-from django.shortcuts import render
-from django.http import HttpResponse
+from django.shortcuts import render, reverse
+from django.http import HttpResponse, HttpResponseRedirect
 
 # Create your views here.
 
 
 def sendEmail(request):
-    return HttpResponse('sendEmail')
+    checked_res_list = request.POST.getlist('checks')
+    inputReceiver = request.POST['inputReceiver']
+    inputTitle = request.POST['inputTitle']
+    inputContent = request.POST['inputContent']
+    print(checked_res_list, "/", inputReceiver, "/", inputTitle, "/", inputContent)
+    return HttpResponseRedirect(reverse('index'))
+    # return HttpResponse('sendEmail')
