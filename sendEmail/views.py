@@ -28,8 +28,11 @@ def sendEmail(request):
     msg = EmailMessage(subject = inputTitle, body=msg_html, from_email='headfat1218@gmail.com',
                        bcc=inputReceiver.split(','))
     msg.content_subtype = 'html'
-    msg.send()
-    return HttpResponseRedirect(reverse('index'))
+    if msg.send():
+        return render(request, 'sendEmail/email_success.html')
+    else:
+        return render(request, 'sendEmail/email_fail.html')
+    
 
 
 
